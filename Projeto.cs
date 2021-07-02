@@ -1,278 +1,338 @@
 using System;
 
-namespace Projeto
+namespace CalculadoraConsole
 {
-
-    public class Program 
+    class Program
     {
-        public static void Main(string [] args)
+        static void Main(string[] args)
         {
-			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("---Calculadora básica---");
-			Console.WriteLine();
-			
-			Console.ForegroundColor = ConsoleColor.Green;
-			Console.WriteLine("--| Menu |--");
-			Console.WriteLine("------------");
-			Console.WriteLine();
-			
-			Console.ResetColor();
-			
-			Console.WriteLine("[S]. Soma");
-			Console.WriteLine("[E]. Subtração");
-			Console.WriteLine("[M]. Multiplicação");
-			Console.WriteLine("[D]. Divisão");
-			Console.WriteLine("[P]. Exponenciação");
-			Console.WriteLine("[R]. Radiciação");
-			Console.WriteLine("[I]. Menu Inicial");
-			Console.WriteLine("[L]. Limpar");
-			Console.WriteLine("[A]. Ajuda");
-			Console.WriteLine("[X]. Sair");
-			Console.WriteLine();
-			
-			string opcao;
-			
-			do
-			{
-			   Console.Write("Digite sua opção: ");
-			   opcao = Console.ReadLine().ToUpper();
-			   Console.WriteLine();
-			
-			   switch (opcao)
-			   {
-				   case "S": 
-				       Console.ForegroundColor = ConsoleColor.Green;
-				       Console.WriteLine("Soma\n");
-				       Console.ResetColor();
-				    
-				       double Quantidade;
-				       double Valor;
-				       double Numeros = 1;
-				       double Soma = 0;
-				    
-				       Console.Write("Digite a quantidade de números a serem somados: ");
-				       Quantidade = Convert.ToDouble(Console.ReadLine());
-				       Console.WriteLine();
-				    
-				       if (Quantidade <= 1) 
-				       {
-				    	   Console.WriteLine("Não é possível somar menos de 2 valores.");
-				       }
-				       else while (Numeros <= Quantidade)
-				       {
-				    	   Console.Write($"Digite o número #{Numeros}: ");
-				    	   Valor = Convert.ToDouble(Console.ReadLine());
-				    	
-				    	   Soma += Valor;
-				    	   Numeros ++;
-				       }
-				       Console.WriteLine();
-				       Console.WriteLine($"Resultado = {Soma}");
-				       Console.WriteLine();
-				       
-				       break;
-				    
-				   case "E":
-				       Console.ForegroundColor = ConsoleColor.Green;
-				       Console.WriteLine("Subtração\n");
-				       Console.ResetColor();
-				    
-				       double Subtração;
-				       double Numeros1 = 1;
-				    
-				       Console.Write("Digite o primeiro valor: ");
-				       Subtração = Convert.ToDouble(Console.ReadLine());
-				       Console.WriteLine();
-				    
-				       Console.Write("Digite a quantidade de números a serem subtraídos desse valor: ");
-				       Quantidade = Convert.ToDouble(Console.ReadLine());
-				       Console.WriteLine();
-				    
-				       if (Quantidade <= 0)
-				       {
-				           Console.WriteLine("Não é possível subtrair menos de um valor");
-				       }
-				       else while (Numeros1 <= Quantidade)
-				       {
-				    	   Console.Write($"Digite o número #{Numeros1}: ");
-				    	   Valor = Convert.ToDouble(Console.ReadLine());
-				    	
-				    	   Subtração -= Valor;
-				    	   Numeros1 ++;
-				       }
-				       Console.WriteLine();
-				       Console.WriteLine($"Resultado = {Subtração}");
-				       Console.WriteLine();
-				       
-				       break;
-				
-				   case "M":
-				       Console.ForegroundColor = ConsoleColor.Green;
-				       Console.WriteLine("Multiplicação\n");
-				       Console.ResetColor();
-				    
-				       double M1;
-				       double M2;
-				       double Multiplicação;
-				    
-				       Console.Write("Digite o primeiro valor: ");
-				       M1 = Convert.ToDouble(Console.ReadLine());
-				    
-				       Console.Write("Digite o segundo valor: ");
-				       M2 = Convert.ToDouble(Console.ReadLine());
-				    
-				       Multiplicação = M1 * M2;
-				    
-				       Console.WriteLine();
-				       Console.WriteLine($"Resultado = {Multiplicação}");
-				       Console.WriteLine();
-				       
-				       break;
-				    
-				   case "D":
-				       Console.ForegroundColor = ConsoleColor.Green;
-				       Console.WriteLine("Divisão\n");
-				       Console.ResetColor();
-				    
-				       double Numerador;
-				       double Divisor;
-				       double Divisão;
-				    
-				       Console.Write("Digite o numerador: ");
-				       Numerador = Convert.ToDouble(Console.ReadLine());
-				    
-				       Console.Write("Digite o divisor: ");
-				       Divisor = Convert.ToDouble(Console.ReadLine());
-				    
-				       Console.WriteLine();
-				    
-				       if (Divisor == 0)
-			           {
-				           Console.WriteLine("Não é possível dividir por 0");
-			           }
-			           else
-			           {
-				           Divisão = Numerador / Divisor;
-				           Console.WriteLine($"Resultado = {Divisão}");
-			           }
-			           Console.WriteLine();
-			           break;
-			        
-			        
-			       case "P":
-			           Console.ForegroundColor = ConsoleColor.Green;
-			           Console.WriteLine("Exponenciação\n");
-			           Console.ResetColor();
-			        
-			           double P1;
-			           double P2;
-			           double Exponenciação;
-			        
-			           Console.Write("Digite o numerador: ");
-			           P1 = Convert.ToDouble(Console.ReadLine());
-			        
-			           Console.Write("Digite o expoente: ");
-			           P2 = Convert.ToDouble(Console.ReadLine());
-			        
-			           Exponenciação = Math.Pow(P1 , P2);
-			        
-			           Console.WriteLine();
-			           Console.WriteLine($"Resultado = {Exponenciação}");
-			           Console.WriteLine();
-			           
-			           break;
-			        
-			        case "R": 
-			            Console.ForegroundColor = ConsoleColor.Green;
-			            Console.WriteLine("Raiz quadrada\n");
-			            Console.ResetColor();
-			         
-			            double R1;
-			            double Radiciação;
-			         
-			            Console.Write("Digite o radicando: ");
-			            R1 = Convert.ToDouble(Console.ReadLine());
-			         
-			            Radiciação = Math.Sqrt(R1);
-			         
-			            Console.WriteLine();
-			            Console.WriteLine($"Resultado = {Radiciação}");
-			            Console.WriteLine();
-			            break;
-			         
-			        case "L":
-			            Console.Clear();
-			            Console.ForegroundColor = ConsoleColor.Green;
-			            Console.WriteLine("Limpeza efetuada!");
-			            Console.ResetColor();
-			            Console.WriteLine();
-			         
-			            break;
-			         
-			        case "A":
-			            Console.ForegroundColor = ConsoleColor.Yellow;
-			            Console.WriteLine("Comandos");
-			            Console.ResetColor();
-			            Console.WriteLine();
-			         
-			            Console.WriteLine("S abre a função de soma.");
-			            Console.WriteLine("E abre a função de subtração.");
-			            Console.WriteLine("M abre a função de multiplicação.");
-			            Console.WriteLine("D abre a função de divisão.");
-			            Console.WriteLine("P abre a função de potenciação.");
-			            Console.WriteLine("R abre a função de radiciação (somente raiz quadrada).");
-			            Console.WriteLine("I abre o menu novamente.");
-			            Console.WriteLine("L limpa a tela.");
-			            Console.WriteLine("A abre este menu de ajuda.");
-			            Console.WriteLine("X fecha o programa.");
-			            Console.WriteLine();
-			            
-			            Console.ForegroundColor = ConsoleColor.Yellow;
-			            Console.WriteLine("Observação: ao efetuar cálculos, use somente números.");
-			            Console.ResetColor();
-			            Console.WriteLine();
-			            
-			            break;
-			         
-			        case "X":
-			            Environment.Exit(-1);
-			            break;
-			         
-			        default:
-			            Console.ForegroundColor = ConsoleColor.Red;
-			            Console.WriteLine("Opção inválida");
-			            Console.ResetColor();
-			            Console.WriteLine();
-			            break;
-			            
-			        case "I":
-			            Console.ForegroundColor = ConsoleColor.Yellow;
-			            Console.WriteLine("---Calculadora básica---");
-			            Console.WriteLine();
-			
-			            Console.ForegroundColor = ConsoleColor.Green;
-			            Console.WriteLine("--| Menu |--");
-			            Console.WriteLine("------------");
-			            Console.WriteLine();
-			
-			            Console.ResetColor();
-			
-			            Console.WriteLine("[S]. Soma");
-			            Console.WriteLine("[E]. Subtração");
-			            Console.WriteLine("[M]. Multiplicação");
-			            Console.WriteLine("[D]. Divisão");
-			            Console.WriteLine("[P]. Exponenciação");
-			            Console.WriteLine("[R]. Radiciação");
-			            Console.WriteLine("[I]. Menu Inicial");
-			            Console.WriteLine("[L]. Limpar");
-			            Console.WriteLine("[A]. Ajuda");
-			            Console.WriteLine("[X]. Sair");
-			            Console.WriteLine();
-			            
-			            break;
-			   }
-			}
-			while (opcao != "X");
+
+            string operacao;
+
+
+            Program.ExibeDesenhoCalculadora();
+            do
+            {
+                Program.ApresentaCalculadora();
+
+                Console.WriteLine("Digite a Operação desejada.");
+                operacao = (Console.ReadLine());
+                Console.WriteLine();
+
+
+
+
+                switch (operacao)
+                {
+                    case "1":
+                        soma();
+                        break;
+
+                    case "2":
+                        subtracao();
+                        break;
+
+                    case "3":
+                        multiplicacao();
+                        break;
+
+                    case "4":
+                        divisao();
+                        break;
+
+                    case "5":
+                        exponenciacao();
+                        break;
+
+                    case "6":
+                        radiacao();
+                        break;
+
+                    case "7":
+                        sobre();
+                        break;
+
+                    case "0":
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Console.WriteLine("Obrigado por utilizar nosso programa!");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        break;
+
+                    default:
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("Escolha uma opção válida");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        break;
+                }
+            } while (operacao != "0");
         }
-    }   
+        static void ExibeDesenhoCalculadora()
+        {
+            Console.Clear();a
+            Console.WriteLine("Bem vindo a NS Calculadora");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("╔═══════════════╗");
+            Console.WriteLine("╠══Calculadora══╣");
+            Console.WriteLine("║ MC| MR| M-| M+║");
+            Console.WriteLine("║ 1 | 2 | 3 | ÷ ║");
+            Console.WriteLine("║ 4 | 5 | 6 | X ║");
+            Console.WriteLine("║ 7 | 8 | 9 | - ║");
+            Console.WriteLine("║   0   | = | + ║");
+            Console.WriteLine("╚═══════════════╝");
+            Console.ResetColor();
+            Console.WriteLine("Pressione uma tecla para continuar");
+            Console.ReadKey();
+        }
+        static void ApresentaCalculadora()
+        {
+            Console.WriteLine("----Operações Abaixo----");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╔══════════════════════════════╗");
+            Console.WriteLine("║ '1' Para soma (+)            ║");
+            Console.WriteLine("║ '2' Para Subtração (-)       ║");
+            Console.WriteLine("║ '3' Para Multiplicação (x)   ║");
+            Console.WriteLine("║ '4' Para Divisão (÷)         ║");
+            Console.WriteLine("║ '5' Para Exponenciação (x²)  ║");
+            Console.WriteLine("║ '6' Para Radiação (√)        ║");
+            Console.WriteLine("║                              ║");
+            Console.WriteLine("║ '7' Sobre                    ║");
+            Console.WriteLine("║ '0' Para Sair do Programa    ║");
+            Console.WriteLine("╚══════════════════════════════╝");
+            Console.ResetColor();
+
+        }
+        static void FinalizaPrograma()
+
+        {
+            Console.WriteLine("Pressione uma tecla para Finalizar o Programa...");
+            Console.ReadKey();
+            Environment.Exit(-1);
+        }
+        static void soma()
+        {
+            bool numero1val, numero2val;
+            double numero1, numero2, resultado;
+
+            Console.Write("Digite o Primeiro número:");
+            numero1val = Double.TryParse(Console.ReadLine(), out numero1);
+
+            if (!numero1val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
+
+            Console.Write("Digite o Segundo número.:");
+            numero2val = Double.TryParse(Console.ReadLine(), out numero2);
+
+            if (!numero2val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+
+            }
+
+            resultado = numero1 + numero2;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\n{numero1} + {numero2} = {resultado}\n");
+            Console.ResetColor();
+
+            FinalizaPrograma();
+
+
+
+        }
+        static void subtracao()
+        {
+            bool numero1val, numero2val;
+            double numero1, numero2, resultado;
+
+            Console.Write("Digite o Primeiro número:");
+            numero1val = Double.TryParse(Console.ReadLine(), out numero1);
+
+            if (!numero1val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
+
+            Console.Write("Digite o Segundo número.:");
+            numero2val = Double.TryParse(Console.ReadLine(), out numero2);
+
+            if (!numero2val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+
+            }
+
+            resultado = numero1 - numero2;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\n{numero1} - {numero2} = {resultado}\n");
+            Console.ResetColor();
+
+
+            FinalizaPrograma();
+
+        }
+        static void multiplicacao()
+        {
+            bool numero1val, numero2val;
+            double numero1, numero2, resultado;
+
+            Console.Write("Digite o Primeiro número:");
+            numero1val = Double.TryParse(Console.ReadLine(), out numero1);
+
+            if (!numero1val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
+
+            Console.Write("Digite o Segundo número.:");
+            numero2val = Double.TryParse(Console.ReadLine(), out numero2);
+
+            if (!numero2val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+
+            }
+
+            resultado = numero1 * numero2;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\n{numero1} x {numero2} = {resultado}\n");
+            Console.ResetColor();
+
+
+            FinalizaPrograma();
+
+        }
+        static void divisao()
+        {
+            bool numero1val, numero2val;
+            double numero1, numero2, resultado;
+
+            Console.Write("Digite o Primeiro número:");
+            numero1val = Double.TryParse(Console.ReadLine(), out numero1);
+
+            if (!numero1val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
+
+            Console.Write("Digite o Segundo número.:");
+            numero2val = Double.TryParse(Console.ReadLine(), out numero2);
+
+            if (!numero2val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+
+            }
+
+            resultado = numero1 / numero2;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\n{numero1} ÷ {numero2} = {resultado}\n");
+            Console.ResetColor();
+
+
+            FinalizaPrograma();
+
+        }
+        static void exponenciacao()
+        {
+            bool numero1val;
+            double numero1, resultado;
+
+            Console.Write("Digite o Número que deseja Exponenciar:");
+            numero1val = Double.TryParse(Console.ReadLine(), out numero1);
+
+            if (!numero1val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
+
+            resultado = Math.Pow(numero1, 2);
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\nO Número {numero1}² = {resultado}\n");
+            Console.ResetColor();
+
+
+            FinalizaPrograma();
+
+        }
+        static void radiacao()
+
+        {
+            bool numero1val;
+            double numero1, resultado;
+
+            Console.Write("Digite o Número que deseja Radiar:");
+            numero1val = Double.TryParse(Console.ReadLine(), out numero1);
+
+            if (!numero1val)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nDigite um Número Válido.");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
+
+            resultado = Math.Sqrt(numero1);
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\nA Raiz Quadrada de {numero1} = {resultado}\n");
+            Console.ResetColor();
+
+            FinalizaPrograma();
+
+        }
+        static void sobre()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Site do Projeto > https://natansantos155.github.io/CalculadoraConsole/");
+            Console.WriteLine("Desenvolvedor > Natã dos Santos Silva");
+            Console.WriteLine("GitHub > https://github.com/NatanSantos155\n");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Agradecimentos");
+            Console.WriteLine("Prof. Neri");
+            Console.WriteLine("Prof. Ermogenes");
+            Console.WriteLine("Etec Adolpho Berezin");
+            Console.ResetColor();
+            Console.ReadKey();
+
+        }
+    }
 }
